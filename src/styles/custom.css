@@ -1,0 +1,12 @@
+.switcher {
+    position: fixed;
+    right: calc(var(--spacing));
+    bottom: var(--spacing);
+    width: auto;
+    padding: .75rem;
+    border-radius: 100%;
+    box-shadow: var(--card-box-shadow);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
