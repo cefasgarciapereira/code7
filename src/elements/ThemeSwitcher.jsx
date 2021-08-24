@@ -6,7 +6,6 @@ function ThemeSwitcher() {
 
     useEffect(() => {
         const storedMode = localStorage.getItem('mode')
-        console.log(storedMode)
         if (storedMode === 'dark') {
             setMode('dark')
         } else {
