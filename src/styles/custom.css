@@ -1,3 +1,18 @@
+.full-page {
+    height: 100vh;
+    width: 100vw;
+}
+
+.center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#indeterminate-progress {
+    max-width: 400px
+}
+
 .switcher {
     position: fixed;
     right: calc(var(--spacing));
@@ -9,4 +24,37 @@
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.profile-picture {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 100px;
+    object-fit: cover;
+}
+
+.client-card-actions{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 1rem;
+}
+
+.sm-button{
+    max-width: 5rem;
+}
+
+.skeleton-field {
+    -webkit-animation: skeleton-field-loading 1s linear infinite alternate both;
+    animation: skeleton-field-loading 1s linear infinite alternate both;
+    height: 100%;
+}
+
+@keyframes skeleton-field-loading {
+    0% {
+        opacity: .2
+    }
+    100% {
+        opacity: .8
+    }
 }
