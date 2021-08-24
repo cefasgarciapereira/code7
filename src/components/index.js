@@ -1,2 +1,2 @@
-export { default as LoadingScreen } from './LoadingScreen'
-export { default as ThemeSwitcher } from './ThemeSwitcher'
+export { default as ClientCard } from './ClientCard'
+export { default as SearchBar } from './SearchBar'
