@@ -29,7 +29,7 @@ function Home() {
                     clients &&
                     clients.map((client) =>
                         <div className="col">
-                            <ClientCard className="p-3" client={client} />
+                            <ClientCard className="p-3" client={client} key={client.id}/>
                         </div>
                     )
                 }
