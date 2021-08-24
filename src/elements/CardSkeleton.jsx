@@ -3,9 +3,9 @@ function CardSkeleton() {
         <article>
             <header className="skeleton-field">
             </header>
-            <body>
+            <div>
 
-            </body>
+            </div>
             <footer className="skeleton-field"></footer>
         </article>
     )
