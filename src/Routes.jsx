@@ -1,13 +1,15 @@
 import React, { lazy, Suspense } from 'react'
 import { Switch, Route } from 'react-router-dom'
 
+import { LoadingScreen } from 'elements'
+
 function Routes() {
 
     const Home = lazy(() => import('pages/Home'))
     const About = lazy(() => import('pages/About'))
 
     return (
-        <Suspense fallback={<h1>Carregando...</h1>}>
+        <Suspense fallback={<LoadingScreen />}>
             <Switch>
 
                 <Route path="/about">
