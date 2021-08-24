@@ -9,7 +9,6 @@ function SearchBar(props) {
         e.preventDefault()
 
         if (!searchTerm) {
-            console.log(data)
             onSearch(data)
             return
         }
