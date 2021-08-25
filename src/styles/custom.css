@@ -33,28 +33,45 @@
     object-fit: cover;
 }
 
-.client-card-actions{
+.client-card-actions {
     display: flex;
     align-items: center;
     justify-content: flex-end;
     gap: 1rem;
 }
 
-.sm-button{
+.sm-button {
     max-width: 5rem;
+}
+
+.portal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, .5);
+    z-index: 9999;
+}
+
+.modal {
+    min-width: 70vw;
+    -webkit-animation: scale-in-center 0.3s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    animation: scale-in-center 0.3s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+.modal-footer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 1rem;
 }
 
 .skeleton-field {
     -webkit-animation: skeleton-field-loading 1s linear infinite alternate both;
     animation: skeleton-field-loading 1s linear infinite alternate both;
     height: 100%;
-}
-
-@keyframes skeleton-field-loading {
-    0% {
-        opacity: .2
-    }
-    100% {
-        opacity: .8
-    }
 }
