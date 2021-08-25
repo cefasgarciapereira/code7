@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react'
-import { ClientCard, SearchBar } from 'components'
+
 import { useFetch } from 'hooks'
+import { ClientCard, SearchBar } from 'components'
+
 import HomeLoading from './HomeLoading'
 
 function Home() {
@@ -29,7 +31,7 @@ function Home() {
                     clients &&
                     clients.map((client) =>
                         <div className="col">
-                            <ClientCard className="p-3" client={client} key={client.id}/>
+                            <ClientCard className="p-3" client={client} key={client.id} />
                         </div>
                     )
                 }
