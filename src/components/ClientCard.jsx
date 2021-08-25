@@ -1,49 +1,85 @@
 import { useState } from 'react'
+import { toast } from 'react-toastify'
 
+import { Modal } from 'elements'
 import code7, { uuid } from 'api/code7'
 
 function ClientCard(props) {
     const { client, ...rest } = props
-    const {
-        id,
-        name,
-        email,
-        website
-    } = client
-    const [loading, setLoading] = useState(false)
+    const [values, setValues] = useState(client)
 
-    function createDebt() {
-        setLoading(true)
-        code7.post(`/divida/${uuid}`, {
-            idUsuario: id,
-            motivo: 'Parcela 3 carro',
-            valor: 199.99
+    async function createDebt() {
+        const body = {
+            idUsuario: values.id,
+            motivo: values.reason,
+            valor: parseFloat(values.price)
+        }
+
+        code7.post(`/divida/${uuid}`, body)
+            .then(() => toast.success(`Dívida criada para ${client.name}`))
+            .catch((err) => toast.error(`Falha ao criar dívida: ${err}`))
+    }
+
+    function handleChange(e) {
+        setValues({
+            ...values,
+            [e.target.name]: e.target.value
         })
-            .then(res => {
-                console.log(res)
-                setLoading(false)
-            })
-            .catch(err => {
-                console.log(err)
-                setLoading(false)
-            })
     }
 
     return (
         <article {...rest}>
             <header>
-                <h5>{name}</h5>
+                <h5>{values.name}</h5>
             </header>
-            <p>{email}</p>
-            <a href={website}>{website}</a>
+            <p>{values.email}</p>
+            <a href={values.website}>{values.website}</a>
             <footer className="client-card-actions">
-                <button
-                    onClick={createDebt}
-                    disabled={loading}
-                    aria-busy={loading}
+                <Modal
+                    title="Aplicar Dívida"
+                    trigger={<button>Aplicar Dívida</button>}
+                    onConfirm={createDebt}
                 >
-                    Aplicar Dívida
-                </button>
+                    <form onSubmit={createDebt}>
+                        <label for="name">Nome do cliente</label>
+                        <input
+                            type="text"
+                            id="name"
+                            name="name"
+                            placeholder="Nome do cliente"
+                            value={values.name}
+                            disabled
+                            required
+                        />
+                        <small>Este campo não pode ser alterado.</small>
+                        <div className="grid">
+                            <label for="reason">
+                                Motivo
+                                <input
+                                    type="text"
+                                    id="reason"
+                                    name="reason"
+                                    placeholder="Motivo"
+                                    value={values.reason}
+                                    onChange={handleChange}
+                                    required
+                                />
+                            </label>
+                            <label for="price">
+                                Valor (R$)
+                                <input
+                                    type="text"
+                                    id="price"
+                                    name="price"
+                                    placeholder="Valor"
+                                    value={values.price}
+                                    onChange={handleChange}
+                                    required
+                                />
+                            </label>
+                        </div>
+                    </form>
+                </Modal>
             </footer>
         </article>
     )
