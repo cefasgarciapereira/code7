@@ -1,16 +1,16 @@
-import 'react-toastify/dist/ReactToastify.min.css';
+import 'react-toastify/dist/ReactToastify.min.css'
 import '@picocss/pico'
-import 'styles/global.css'
-import 'styles/custom.css'
-import 'styles/grid-system.css'
 import 'styles/animations.css'
-
+import 'styles/base-layout.css'
+import 'styles/custom.css'
+import 'styles/global.css'
+import 'styles/grid-system.css'
 
 import { BrowserRouter } from "react-router-dom"
 import { ToastContainer } from 'react-toastify'
 
 import Routes from './Routes'
-import { ThemeSwitcher } from 'elements'
+import { BaseLayout } from 'components'
 
 function App() {
     return (
@@ -29,8 +29,9 @@ function App() {
                     fontSize: '.75rem'
                 }}
             />
-            <Routes />
-            <ThemeSwitcher />
+            <BaseLayout>
+                <Routes />
+            </BaseLayout>
         </BrowserRouter>
     )
 }
