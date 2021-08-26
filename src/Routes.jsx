@@ -5,19 +5,19 @@ import { LoadingScreen } from 'elements'
 
 function Routes() {
 
-    const Home = lazy(() => import('pages/Home'))
-    const About = lazy(() => import('pages/About'))
+    const Clients = lazy(() => import('pages/Clients'))
+    const Debts = lazy(() => import('pages/Debts'))
 
     return (
         <Suspense fallback={<LoadingScreen />}>
             <Switch>
 
-                <Route path="/about">
-                    <About />
+                <Route path="/dividas">
+                    <Debts />
                 </Route>
 
                 <Route path="/">
-                    <Home />
+                    <Clients />
                 </Route>
 
             </Switch>
