@@ -29,7 +29,7 @@ function ThemeSwitcher() {
             aria-label="Toggle dark mode"
             onClick={toggleTheme}
         >
-            <BiAdjust size="1.5em"/>
+            <BiAdjust/>
         </button>
     )
 }
