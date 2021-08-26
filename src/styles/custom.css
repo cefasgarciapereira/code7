@@ -14,16 +14,16 @@
 }
 
 .switcher {
-    position: fixed;
     right: calc(var(--spacing));
     bottom: var(--spacing);
     width: auto;
-    padding: .75rem;
+    padding: .3rem;
     border-radius: 100%;
     box-shadow: var(--card-box-shadow);
     display: flex;
     align-items: center;
     justify-content: center;
+    margin: 0 .5rem;
 }
 
 .profile-picture {
@@ -74,4 +74,11 @@
     -webkit-animation: skeleton-field-loading 1s linear infinite alternate both;
     animation: skeleton-field-loading 1s linear infinite alternate both;
     height: 100%;
+}
+
+.footer-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 1rem;
 }
